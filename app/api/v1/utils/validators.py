@@ -1,6 +1,5 @@
-from flask import abort
-
 import re
+
 
 class Verify:
     def is_empty(self, items):
@@ -8,7 +7,7 @@ class Verify:
             if bool(item) is False:
                 return True
         return False
-
+               
 
     def is_whitespace(self, items):
         for item in items:
@@ -29,22 +28,35 @@ class Verify:
 
 
     def is_signup_payload(self, items):
-        result = self.payload(items, 3, ['email_address', 'username', 'password'])
-        return result
+        res = self.payload(items, 3, ['email_address', 'username', 'password'])
+        return res
 
 
-    def is_valid_email(self, email_address):
-        if not re.match(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email_address.islower()):
-            Message: "Invalid email address"
-            abort(400, Message)
+    @staticmethod
+    def is_valid_email(email_address):
+        if re.match(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email_address) is None:
+            res = True
+        else:
+            res = False
+        return res
 
     
-    def is_valid_password(self, password):
-        if len(password) < 6 or len(password) > 12:
-            Message: "Password must be longer than 6 characters and less than 12 characters"
-            abort(400, Message)
+    @staticmethod
+    def is_valid_password(password):
+        if len(password) < 6 or len(password) > 12 is True:
+            res = True
+        else:
+            res = False
+        return res
 
 
     def is_login_payload(self, items):
-        result = self.payload(items, 2, ['username', 'password'])
-        return result
+        res = self.payload(items, 2, ['username', 'password'])
+        return res
+
+
+    @staticmethod
+    def list_iterator(list):
+        for i in list:
+            if i is None or not i:
+                return False

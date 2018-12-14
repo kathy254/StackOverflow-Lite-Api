@@ -1,4 +1,3 @@
-from flask import jsonify
 from ..utils.validators import Verify
 user_accounts = []
 
@@ -20,18 +19,18 @@ class Accounts(Verify):
     
         present = self.list_iterator(member_info)
         if present is False:
-            return jsonify({"message": "Please fill out all fields"})
+            return {"message": "Please fill out all fields"}
         if self.is_signup_payload is False:
-            return jsonify({"message": "Payload is invalid"})
+            return {"message": "Payload is invalid"}
         if self.is_valid_password(password) is True:
-            return jsonify({"message": "Password has to be between 6 and 12 characters long"})
+            return {"message": "Password has to be between 6 and 12 characters long"}
         if self.is_valid_email(email_address) is True:
-            return jsonify({"message": "Please enter a valid email address"})
+            return {"message": "Please enter a valid email address"}
         else:
             user_accounts.append(new_member)
             return {
                 "message": "User with username {} added successfully".format(username),
-                "result": "Welcome to StackOverflow-Lite",
+                "response": "Welcome to StackOverflow-Lite",
                 "Stackoverflow member since": timestamp
                 }
         

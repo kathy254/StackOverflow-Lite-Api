@@ -61,13 +61,15 @@ When you run this application, you can test the following api endpoints using po
 -----------------------------------------------
 
 **Unrestricted endpoints**
- Endpoint | Functionality 
+
+| Endpoint | Functionality |
 ----------|---------------
 GET /index | View all questions and answers
 POST /auth/signup | Register a user
 POST /auth/login | Login a user
 
 **Restricted endpoints**
+
 Endpoint | Functionality
 ---------|---------------
 GET /questions | Fetch all questions
@@ -79,7 +81,7 @@ PUT /questions/&lt;questionID&gt;/answers/&lt;answerId&gt; | Mark an answer as a
 
 Authors
 -----------------------------
-**Catherine Omondi** - _Initial work_[kathy254](https:/github.com/kathy254)
+**Catherine Omondi** - _Initial work_-[kathy254](https:/github.com/kathy254)
 
 License
 --------------------------

@@ -1,4 +1,5 @@
 from ..utils.validators import Verify
+
 user_accounts = []
 
 
@@ -9,10 +10,10 @@ class Accounts(Verify):
     def signup(self, email_address, username, password, timestamp):
         '''method to add a user to user_accounts list'''
         new_member = dict(
-            email_address = "email_address",
-            username = "username",
-            password = "password",
-            timestamp = "timestamp"
+            email_address = email_address,
+            username = username,
+            password = password,
+            timestamp = timestamp
         )
         
         member_info = [email_address, username, password]
@@ -31,6 +32,13 @@ class Accounts(Verify):
             return {
                 "message": "User with username {} added successfully".format(username),
                 "response": "Welcome to StackOverflow-Lite",
-                "Stackoverflow member since": timestamp
+                "Stackoverflow member since": timestamp 
                 }
+
+
+    def get_all_users(self):
+        if len(user_accounts) == 0:
+            return {"message": "No users found"}
+        else:
+            return user_accounts
         

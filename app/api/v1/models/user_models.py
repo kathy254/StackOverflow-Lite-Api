@@ -42,3 +42,11 @@ class Accounts(Verify):
         else:
             return user_accounts
         
+    def get_single_user(self, username):
+        '''method to get user by username'''
+        
+        single_user = [user for user in user_accounts if user['username'] == username]
+        if single_user:
+            return single_user[0]
+        else:
+            return "User not found"

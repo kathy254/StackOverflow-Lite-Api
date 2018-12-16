@@ -27,6 +27,14 @@ def register_user():
     return result
 
 
+@auth.route('/users', methods = ['GET'])
+def member_list():
+    '''endpoint to get all members on the site'''
+    result = jsonify(user_object.get_all_users())
+    result.status_code = 200
+    return result
+
+
 
     
 

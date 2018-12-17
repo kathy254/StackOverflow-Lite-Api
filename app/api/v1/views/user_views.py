@@ -44,6 +44,13 @@ def edit_username(username):
     return jsonify(current_username)
     
 
+@auth.route('/users/<string:username>', methods = ['DELETE'])
+def delete_user(username):
+    '''endpoint to delete a user'''
+    search_username = user_object.get_single_user(username)
+    user_models.user_accounts.remove(search_username)
+    return jsonify(user_models.user_accounts)
+
 
     
 

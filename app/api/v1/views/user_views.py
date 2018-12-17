@@ -35,7 +35,13 @@ def member_list():
     return result
 
 
-
+@auth.route('/users/<string:username>', methods = ['PUT'])
+def edit_username(username):
+    '''endpoint to edit the username'''
+    current_username = user_object.get_single_user(username)
+    data = request.get_json()["username"]
+    current_username["username"] = data
+    return jsonify(current_username)
     
 
 

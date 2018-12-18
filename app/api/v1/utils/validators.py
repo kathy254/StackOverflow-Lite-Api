@@ -23,8 +23,6 @@ class Verify:
                 if item not in keys:
                     return False
                 return True
-        else:
-            return False
 
 
     def is_signup_payload(self, items):
@@ -43,7 +41,7 @@ class Verify:
     
     @staticmethod
     def is_valid_password(password):
-        if len(password) < 6 or len(password) > 12 is True:
+        if (len(password)<6 or len(password)>12) is True:
             res = True
         else:
             res = False

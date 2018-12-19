@@ -5,6 +5,7 @@ class Config(object):
     DEBUG = False
     SECRET_KEY = 'tryandguess'
     ENV = 'development'
+    JSON_SORT_KEYS = False
 
 
 class DevelopmentConfig(Config):

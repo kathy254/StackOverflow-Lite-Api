@@ -98,6 +98,15 @@ class TestValidators(unittest.TestCase):
         self.assertTrue(test)
 
 
+    def test_incorrect_login_payload(self):
+        '''method to check for incorrect login payload'''
+        payload1 = {"email_address": "abcd@gmail.com"}
+        payload2 = {"user": "myname", "pass": "notpass"}
+        test = self.data.is_login_payload(payload1)
+        test2 = self.data.is_login_payload(payload2)
+        self.assertFalse(test)
+        self.assertFalse(test2)
+
     
 
 

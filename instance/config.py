@@ -28,3 +28,5 @@ app_config = {
     'staging': StagingConfig,
     'production': ProductionConfig
 }
+
+secret_key = Config.SECRET_KEY

@@ -2,6 +2,7 @@ import jwt
 import datetime
 from ..utils.validators import Verify
 from instance.config import secret_key
+from passlib.hash import pbkdf2_sha256 as sha256
 
 user_accounts = []
 
@@ -53,6 +54,16 @@ class Accounts(Verify):
             return single_user[0]
         else:
             return "User not found"
+
+
+    @staticmethod
+    def generate_hash(password):
+        return sha256.hash(password)
+
+
+    @staticmethod
+    def verify_hash(password, hash):
+        return sha256.verify(password, hash)
 
     @staticmethod
     def encode_login_token(username, password):

@@ -1,4 +1,7 @@
+import jwt
+import datetime
 from ..utils.validators import Verify
+from instance.config import secret_key
 
 user_accounts = []
 
@@ -50,3 +53,33 @@ class Accounts(Verify):
             return single_user[0]
         else:
             return "User not found"
+
+    @staticmethod
+    def encode_login_token(username, password):
+        '''method for encoding the login token'''
+        try:
+            payload = {
+                "exp": datetime.datetime.now() + datetime.timedelta(hours=24),
+                "iat": datetime.datetime.now(),
+                "sub": username,
+                "password": password
+            }
+
+            token = jwt.encode(payload, secret_key, algorithm="HS256")
+
+            return token
+
+        except Exception as e:
+            return e
+
+
+    @staticmethod
+    def decode_auth_token(token):
+        '''method to decode the authentication token'''
+        try:
+            payload = jwt.decode(token, secret_key, options={"verify_iat": False})
+            return payload
+        except jwt.ExpiredSignatureError:
+            return {"message": "Signature expired. Please log in again."}
+        except jwt.InvalidTokenError:
+            return {"message": "Invalid token. Please log in again"}

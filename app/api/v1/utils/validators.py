@@ -41,7 +41,7 @@ class Verify:
     
     @staticmethod
     def is_valid_password(password):
-        if (len(password)<6 or len(password)>12) is True:
+        if (len(password)<6) is True:
             res = True
         else:
             res = False

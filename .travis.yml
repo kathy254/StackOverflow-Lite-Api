@@ -14,7 +14,7 @@ env:
   - FLASK_VERSION=1.0.2
 
 script:
-  - pytest --cov-report --cov=tests/v1
+  - pytest --cov=tests/v1
   - coveralls
 
 after_success:

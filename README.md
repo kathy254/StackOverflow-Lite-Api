@@ -3,6 +3,10 @@
 StackOverflow-Lite-Api is a simple question and answer platform.
 --------------------------------------------------------------------
 
+Badges
+-----------------
+<a href="https://codeclimate.com/github/kathy254/StackOverflow-Lite-Api/maintainability"><img src="https://api.codeclimate.com/v1/badges/e5715a6eae05704e6c5b/maintainability" /></a>
+
 **Find the web UI here:**
 https://github.com/kathy254/StackOverflow-Lite-UI
 

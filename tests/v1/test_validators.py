@@ -47,12 +47,15 @@ class TestValidators(unittest.TestCase):
         payload1 = {"email_address": "abc@gmail.com", "myname": "name"}
         payload2 = {"email": "abc@gmail.com", "password": "abcd"}
         payload3 = {"email_address": "efgh@gmail.com"}
+        payload4 = {"myemail": "email@gmail.com", "myname": "name", "mypassword": "password"}
         test1 = self.data.is_signup_payload(payload1)
         test2 = self.data.is_signup_payload(payload2)
         test3 = self.data.is_signup_payload(payload3)
+        test4 = self.data.is_signup_payload(payload4)
         self.assertFalse(test1)
         self.assertFalse(test2)
         self.assertFalse(test3)
+        self.assertFalse(test4)
 
 
     def test_valid_email(self):
@@ -86,7 +89,7 @@ class TestValidators(unittest.TestCase):
     def test_invalid_password(self):
         '''method to check for invalid password'''
         test1 = self.data.is_valid_password("abc")
-        test2 = self.data.is_valid_password("akskskskskskskkssksksksksksksksk")
+        test2 = self.data.is_valid_password("123")
         self.assertTrue(test1)
         self.assertTrue(test2)
 
@@ -102,11 +105,13 @@ class TestValidators(unittest.TestCase):
         '''method to check for incorrect login payload'''
         payload1 = {"email_address": "abcd@gmail.com"}
         payload2 = {"user": "myname", "pass": "notpass"}
+        payload3 = {"user": "notmyname", "something": "somethingsomething"}
         test = self.data.is_login_payload(payload1)
         test2 = self.data.is_login_payload(payload2)
+        test3 = self.data.is_login_payload(payload3)
         self.assertFalse(test)
         self.assertFalse(test2)
-
+        self.assertFalse(test3)
     
 
 

@@ -4,7 +4,7 @@ from ..utils.validators import Verify
 from instance.config import secret_key
 from passlib.hash import pbkdf2_sha256 as sha256
 
-user_accounts = []
+user_accounts = [] 
 
 
 class Accounts(Verify):
@@ -28,15 +28,16 @@ class Accounts(Verify):
         if self.is_signup_payload is False:
             return {"message": "Payload is invalid"}
         if self.is_valid_password(password) is True:
-            return {"message": "Password has to be between 6 and 12 characters long"}
+            return {"message": "Password is too short. Please make sure it is at least 6 characters"}
         if self.is_valid_email(email_address) is True:
             return {"message": "Please enter a valid email address"}
         else:
             user_accounts.append(new_member)
             return {
+                "status": "Success",
                 "message": "User with username {} added successfully".format(username),
                 "response": "Welcome to StackOverflow-Lite",
-                "Stackoverflow member since": timestamp 
+                "Stackoverflow member since": timestamp,
                 }
 
 
@@ -45,6 +46,16 @@ class Accounts(Verify):
             return {"message": "No users found"}
         else:
             return user_accounts
+
+
+    @staticmethod
+    def get_user_email(email_address):
+        '''method to get the email_address in user_accounts'''
+        email_exists = [user for user in user_accounts if user["email_address"] == email_address]
+        if email_exists:
+            return {"message": "This email address already exists. Please log in"}
+        else:
+            return  "User not found"
         
     def get_single_user(self, username):
         '''method to get user by username'''
@@ -64,15 +75,16 @@ class Accounts(Verify):
     @staticmethod
     def verify_hash(password, hash):
         return sha256.verify(password, hash)
+        
 
     @staticmethod
     def encode_login_token(username, password):
         '''method for encoding the login token'''
         try:
             payload = {
-                "exp": datetime.datetime.now() + datetime.timedelta(hours=24),
-                "iat": datetime.datetime.now(),
-                "sub": username,
+                "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=24),
+                "iat": datetime.datetime.utcnow(),
+                "username": username,
                 "password": password
             }
 
@@ -88,7 +100,7 @@ class Accounts(Verify):
     def decode_auth_token(token):
         '''method to decode the authentication token'''
         try:
-            payload = jwt.decode(token, secret_key, options={"verify_iat": False})
+            payload = jwt.decode(token, secret_key, options={"verify_iat": False}, algorithms="HS256")
             return payload
         except jwt.ExpiredSignatureError:
             return {"message": "Signature expired. Please log in again."}

@@ -5,7 +5,7 @@ StackOverflow-Lite-Api is a simple question and answer platform.
 
 Badges
 -----------------
-[![Build Status](https://travis-ci.org/kathy254/StackOverflow-Lite-Api.svg?branch=develop)](https://travis-ci.org/kathy254/StackOverflow-Lite-Api)  [![Coverage Status](https://coveralls.io/repos/github/kathy254/StackOverflow-Lite-Api/badge.svg?branch=ch-travis-file-162880772)](https://coveralls.io/github/kathy254/StackOverflow-Lite-Api?branch=ch-travis-file-162880772)  [![Maintainability](https://api.codeclimate.com/v1/badges/e5715a6eae05704e6c5b/maintainability)](https://codeclimate.com/github/kathy254/StackOverflow-Lite-Api/maintainability)
+[![Build Status](https://travis-ci.org/kathy254/StackOverflow-Lite-Api.svg?branch=develop)](https://travis-ci.org/kathy254/StackOverflow-Lite-Api)    [![Coverage Status](https://coveralls.io/repos/github/kathy254/StackOverflow-Lite-Api/badge.svg?branch=ch-travis-file-162880772)](https://coveralls.io/github/kathy254/StackOverflow-Lite-Api?branch=ch-travis-file-162880772)    [![Maintainability](https://api.codeclimate.com/v1/badges/e5715a6eae05704e6c5b/maintainability)](https://codeclimate.com/github/kathy254/StackOverflow-Lite-Api/maintainability)    [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)   [![PEP8](https://img.shields.io/badge/code%20style-pep8-green.svg)](https://www.python.org/dev/peps/pep-0008/)
 
 **Find the web UI here:**
 https://github.com/kathy254/StackOverflow-Lite-UI

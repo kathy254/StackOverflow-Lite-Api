@@ -37,7 +37,7 @@ class Accounts(Verify):
                 "status": "Success",
                 "message": "User with username {} added successfully".format(username),
                 "response": "Welcome to StackOverflow-Lite",
-                "Stackoverflow member since": timestamp,
+                "Stackoverflow member since": timestamp
                 }
 
 
@@ -75,7 +75,7 @@ class Accounts(Verify):
     @staticmethod
     def verify_hash(password, hash):
         return sha256.verify(password, hash)
-        
+
 
     @staticmethod
     def encode_login_token(username, password):

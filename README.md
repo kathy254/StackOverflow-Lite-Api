@@ -13,6 +13,8 @@ https://github.com/kathy254/StackOverflow-Lite-UI
 
 The project is managed using a Pivotal Tracker board. [View the board here](https://www.pivotaltracker.com/n/projects/2231025)
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0a3f0f2e57f8c653f6b7)
+
 Getting started
 --------------------
 1. Clone this repository

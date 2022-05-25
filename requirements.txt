@@ -22,7 +22,7 @@ passlib==1.7.1
 pep8==1.7.1
 pluggy==0.8.0
 py==1.7.0
-PyJWT==1.7.1
+PyJWT==2.4.0
 pylint==2.2.2
 pytest==4.0.2
 python-keyboardleds==0.3.4
